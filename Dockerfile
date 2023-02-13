@@ -11,6 +11,6 @@ RUN tar xvf spark-3.3.1-bin-hadoop3.tgz
 RUN echo 'export SPARK_HOME=/opt/spark/spark-3.3.1-bin-hadoop3' >> ~/.bashrc
 RUN echo 'export PATH=$PATH:$SPARK_HOME/bin' >> ~/.bashrc
 RUN echo 'export PYSPARK_PYTHON=/usr/bin/python3' >> ~/.bashrc
-RUN pip install pyspark
+RUN pip install pyspark==3.3.1
 RUN  /bin/bash -c "source ~/.bashrc"
 WORKDIR /src/project/
