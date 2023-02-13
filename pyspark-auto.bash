@@ -10,16 +10,16 @@ sudo apt install -y python3
 sudo apt install -y python3-pip
 
 source ~/.bashrc
-pip install pyspark==3.2.1
+pip install pyspark==3.3.1
 
-if [[ ! -e /opt/spark/spark-3.2.1-bin-hadoop3.2.tgz ]]; then
+if [[ ! -e /opt/spark/spark-3.3.1-bin-hadoop3.tgz ]]; then
     sudo mkdir -p /opt/spark/
-    sudo wget https://dlcdn.apache.org/spark/spark-3.2.1/spark-3.2.1-bin-hadoop3.2.tgz -P /opt/spark/
-    sudo tar xvf /opt/spark/spark-3.2.1-bin-hadoop3.2.tgz  -C /opt/spark/
+    sudo wget https://dlcdn.apache.org/spark/spark-3.3.1/spark-3.3.1-bin-hadoop3.tgz -P /opt/spark/
+    sudo tar xvf /opt/spark/spark-3.3.1-bin-hadoop3.tgz  -C /opt/spark/
     if ! grep -R "export PYSPARK_PYTHON=/usr/bin/python3" ~/.bashrc 
     then
         echo "añadiendo variables de entornos no existentes"
-        echo 'export SPARK_HOME=/opt/spark/spark-3.2.1-bin-hadoop3.2' >> ~/.bashrc
+        echo 'export SPARK_HOME=/opt/spark/spark-3.3.1-bin-hadoop3.tgz' >> ~/.bashrc
         echo 'export PATH=$PATH:$SPARK_HOME/bin' >> ~/.bashrc
         echo 'export PYSPARK_PYTHON=/usr/bin/python3' >> ~/.bashrc
         source ~/.bashrc
@@ -32,9 +32,9 @@ while true; do
     clear
     read -p "Al parecer se encuentra una previa instalación. Le gustaria reiniciar la instalación de apache spark? yes/no: " yn
     case $yn in
-        [Yy]* ) sudo rm -r /opt/spark/spark-3.2.1-bin-hadoop3.2.tgz
-                sudo wget https://dlcdn.apache.org/spark/spark-3.2.1/spark-3.2.1-bin-hadoop3.2.tgz -P /opt/spark/
-                sudo tar xvf /opt/spark/spark-3.2.1-bin-hadoop3.2.tgz -C /opt/spark/
+        [Yy]* ) sudo rm -r /opt/spark/spark-3.3.1-bin-hadoop3.tgz
+                sudo wget https://dlcdn.apache.org/spark/spark-3.3.1/spark-3.3.1-bin-hadoop3.tgz -P /opt/spark/
+                sudo tar xvf /opt/spark/spark-3.3.1-bin-hadoop3.tgz -C /opt/spark/
                 if ! grep -R "export PYSPARK_PYTHON=/usr/bin/python3" ~/.bashrc
                 then
                     echo "añadiendo variables de entornos no existentes"
